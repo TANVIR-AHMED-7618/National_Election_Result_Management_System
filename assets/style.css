@@ -1,0 +1,191 @@
+
+body { font-family: system-ui, Arial; background:#f6f7fb; margin:0; }
+.container { max-width: 980px; margin: 30px auto; padding: 0 16px; }
+.card { background:#fff; border:1px solid #e7e7ef; border-radius:14px; padding:18px; box-shadow: 0 8px 24px rgba(0,0,0,.05); }
+h2 { margin: 0 0 12px; }
+label { display:block; font-size: 13px; margin: 10px 0 6px; color:#333; }
+input, select { width:100%; padding:10px; border:1px solid #ddd; border-radius:10px; outline:none; }
+.btn { background:#111; color:#fff; border:none; padding:10px 14px; border-radius:10px; cursor:pointer; margin-top:12px; }
+.btn-outline { display:inline-block; border:1px solid #111; color:#111; padding:8px 12px; border-radius:10px; text-decoration:none; }
+.row { display:grid; grid-template-columns: 1.2fr 1.2fr .6fr; gap:12px; align-items:end; }
+/* .col { } */
+.grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; margin-top:12px; }
+.grid2 { display:grid; grid-template-columns: repeat(2, 1fr); gap:12px; }
+.link { text-decoration:none; color:#111; font-weight:600; }
+.alert { background:#ffe7e7; padding:10px; border-radius:10px; border:1px solid #ffbdbd; margin:10px 0; }
+.success { background:#eaffea; padding:10px; border-radius:10px; border:1px solid #bff0bf; margin:10px 0; }
+.muted { color:#666; font-size: 13px; }
+.table { width:100%; border-collapse:collapse; margin-top:12px; }
+.table th, .table td { padding:10px; border-bottom:1px solid #eee; }
+.topbar { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+@media (max-width: 820px){
+  .row { grid-template-columns: 1fr; }
+  .grid { grid-template-columns: 1fr; }
+  .grid2 { grid-template-columns: 1fr; }
+}
+
+
+/* ===== FORCE 50% + 50% OVERVIEW LAYOUT ===== */
+
+/* ===== 60 / 40 OVERVIEW LAYOUT ===== */
+
+.overview-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;                 /* gap একটু কমানো */
+}
+
+/* Pie charts side = 60% */
+.overview-left {
+  flex: 0 0 60%;
+  max-width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Overview table side = 40% */
+.overview-right {
+  flex: 0 0 40%;
+  max-width: 40%;
+  background: #fff;
+  border: 1px solid #e7e7ef;
+  border-radius: 12px;
+  padding: 10px;
+  overflow-x: auto;
+}
+
+
+/* Pie card: center content horizontally */
+.chart-card {
+  height: 360px;
+  display: flex;
+  justify-content: center;   /* 👈 horizontal center */
+  align-items: center;
+}
+
+/* Pie canvas size */
+.chart-card canvas {
+  width: 360px !important;
+  height: 360px !important;
+  margin: 0 auto;            /* 👈 extra safety */
+}
+
+/* overview table wrap */
+.overview-right table th,
+.overview-right table td {
+  white-space: normal;     /* wrap allow */
+  word-break: break-word;
+}
+
+
+
+/* Mobile only */
+@media (max-width: 900px) {
+  .overview-wrapper {
+    flex-direction: column !important;
+  }
+  .overview-left,
+  .overview-right {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+}
+
+
+
+/* ===== FINAL SAFE Seat-wise Casting Vote Table ===== */
+
+.matrix-wrap {
+  width: 100%;
+  overflow-x: auto;            /* horizontal scrollbar */
+}
+
+#matrixTable {
+  min-width: 1200px;           /* পুরো টেবিল বড় হবে */
+  border-collapse: collapse;
+}
+
+/* wrap বন্ধ */
+#matrixTable th,
+#matrixTable td {
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* প্রতিটি Top-10 সেলের প্রস্থ */
+.matrix-cell {
+  min-width: 150px;            /* 👈 প্রয়োজনে 170/180 দিন */
+  text-align: center;
+  padding: 12px 10px;
+}
+
+/* প্রতীকের নাম */
+.matrix-cell .sym {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 6px;
+  white-space: nowrap;
+}
+
+/* ভোট সংখ্যা */
+.matrix-cell .v {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+
+
+/* ===== Final Top10 Grid (Improved Spacing & Emphasis) ===== */
+
+.final-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px;                 /* 👉 grid থেকে grid আরও ফাঁকা */
+  margin-top: 16px;
+}
+
+.final-grid-card {
+  border: 1px solid #e4e6ef;
+  border-radius: 16px;
+  padding: 22px 18px;        /* 👉 padding বাড়ানো */
+  background: #ffffff;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+/* Leading seat count (সবচেয়ে গুরুত্বপূর্ণ) */
+.final-seatcount {
+  font-size: 36px;           /* 👉 আগের থেকে বড় */
+  font-weight: 900;          /* 👉 আরও bold */
+  line-height: 1.1;
+  color: #111;
+}
+
+/* Symbol name */
+.final-symbol {
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 15px;
+  color: #222;
+}
+
+/* Vote percentage (secondary info) */
+.final-pct {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #666;
+}
+
+/* ===== Responsive (Mobile / Small Screen) ===== */
+@media (max-width: 900px){
+  .final-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .final-seatcount {
+    font-size: 30px;
+  }
+}
