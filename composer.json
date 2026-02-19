@@ -1,0 +1,7 @@
+{
+    "require": {
+        "phpoffice/phpspreadsheet": "5.4",
+        "mpdf/mpdf": "8.2",
+        "openspout/openspout": "4.0"
+    }
+}
